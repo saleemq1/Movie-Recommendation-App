@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Recommendations</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .movie {
+        display: flex;
+        align-items: center;
+        margin-bottom: 20px;
+      }
+      .movie img {
+        margin-right: 20px;
+        width: 100px;
+        height: 150px;
+      }
+      .movie-details {
+        max-width: 600px;
+      }
+      .movie-details h2 {
+        margin: 0;
+        font-size: 1.5em;
+      }
+      .movie-details p {
+        margin: 5px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Recommended Movies</h1>
+    {% for movie in movies %}
+    <div class="movie">
+      <img
+        src="{{ movie.Poster_Link }}"
+        alt="Poster of {{ movie.Series_Title }}"
+      />
+      <div class="movie-details">
+        <h2>{{ movie.Series_Title }} ({{ movie.Released_Year }})</h2>
+        <p><strong>Genre:</strong> {{ movie.Genre }}</p>
+        <p><strong>IMDB Rating:</strong> {{ movie.IMDB_Rating }}</p>
+        <p><strong>Director:</strong> {{ movie.Director }}</p>
+        <p>{{ movie.Overview }}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </body>
+</html>
